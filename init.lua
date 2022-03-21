@@ -68,4 +68,9 @@ wifi.eventmon.register(wifi.eventmon.STA_DISCONNECTED, wifi_disconnect_event)
 print("Connecting to WiFi access point...")
 wifi.setmode(wifi.STATION)
 wifi.sta.config({ssid=SSID, pwd=PASSWORD})
+if (wifi.sta.sethostname("SomfyRestAPI") == true) then
+    print("hostname was successfully changed")
+else
+    print("hostname was not changed")
+end
 -- wifi.sta.connect() not necessary because config() uses auto-connect=true by default
