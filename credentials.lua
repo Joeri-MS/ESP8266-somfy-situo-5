@@ -1,0 +1,3 @@
+-- Credentials
+SSID = "YOURSSID"
+PASSWORD = "YOURPASSWD"
