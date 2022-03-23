@@ -27,5 +27,10 @@ ToDo Liste:
 4. Aus dem Project https://github.com/abobija/api32 nutze ich die api32.lua Datei
 5. Nun die Ferbedienung öffnen und die Kabel anlöten, dazu sind ein paar Bilder im docs-Verzeichnis
 
+![Fernbedienung 1](/docs/Remote-1.jpg)
+![Fernbedienung 2](/docs/Remote-2.jpg)
+
 Bei der Anbindung mit NodeRed ist mir augefallen das die Basis Auth direkt als Header verschlüsselt übergeben werden muss.
 Meinen NodeRed-Flow Export ist im docs-Verzeichnis zu finden. Zusätzlich nutze ich noch das suncon Plugin bei NodeRed um bei Sonnenuntergang alle Markisen und Rollos einzufahren.
+
+![Node Red Flow](/docs/NodeRed-Somfy.jpg)
