@@ -15,6 +15,8 @@ local modeawning_2 = 2
 local modeshutter_1 = 3
 local modeshutter_2 = 4
 local modeled = 5
+local maxawning_sec = 39
+local maxshutter_sec = 30
 
 local button_up = 7
 local button_down = 6
@@ -32,6 +34,43 @@ gpio.write(button_down, btn_release)
 gpio.write(button_my, btn_release)
 gpio.write(button_select, btn_release)
 gpio.write(button_prg, btn_release)
+
+local function do_somfy_action(somfymode, somfyaction)
+-- "on", "off", "extendfull", "retractfull", "extend10", "retract10", "half", "my"
+   if somfyaction == 'on' or somfyaction == 'retractfull' then
+      gpio.write(button_up, btn_press)
+      tmr.delay(300 * US_TO_MS)
+      gpio.write(button_up, btn_release)
+      tmr.delay(200 * US_TO_MS)
+   elseif somfyaction == 'off' or somfyaction == 'extendfull' then   
+      gpio.write(button_down, btn_press)
+      tmr.delay(300 * US_TO_MS)
+      gpio.write(button_down, btn_release)
+      tmr.delay(200 * US_TO_MS)
+   elseif somfyaction == 'extend10' then
+      if somfymode == 'sunblind' then
+      elseif somfymode == 'shutter' then
+      end
+   elseif somfyaction == 'retract10' then
+      if somfymode == 'sunblind' then
+      elseif somfymode == 'shutter' then
+      end
+   elseif somfyaction == 'half' then
+      if somfymode == 'led' then
+         gpio.write(button_my, btn_press)
+         tmr.delay(300 * US_TO_MS)
+         gpio.write(button_my, btn_release)
+         tmr.delay(200 * US_TO_MS)
+      elseif somfymode == 'sunblind' then
+      elseif somfymode == 'shutter' then
+      end
+   elseif somfyaction == 'my' then
+      gpio.write(button_my, btn_press)
+      tmr.delay(300 * US_TO_MS)
+      gpio.write(button_my, btn_release)
+      tmr.delay(200 * US_TO_MS)
+   end
+end
 
 local function do_somfy_select_one(selectsave)
    local selectedled = 0
@@ -96,6 +135,36 @@ if api == nil then
                 return {
                     selected = '1',
                     volt = adc.read(0)
+                }
+         end)
+         .on_post('/action', function(jreq)
+                if jreq == nil or jreq.target == nil or jreq.action == nil then
+                    return {
+                       status = 'ERROR'
+                    }
+                end
+                for key, value in pairs(jreq.target) do
+                   if value == 'sunblindright' then
+                      do_somfy_select_one(modeawning_1)
+                      do_somfy_action('sunblind', jreq.action)
+                   elseif value == 'sunblindleft' then
+                      do_somfy_select_one(modeawning_2)
+                      do_somfy_action('sunblind', jreq.action)
+                   elseif value == 'shutterright' then
+                      do_somfy_select_one(modeshutter_1)
+                      do_somfy_action('suhher', jreq.action)
+                   elseif value == 'shutterleft' then
+                      do_somfy_select_one(modeshutter_2)
+                      do_somfy_action('shutter', jreq.action)
+                   elseif value == 'light' then
+                      do_somfy_select_one(modeled)
+                      do_somfy_action('led', jreq.action)
+                   end
+                end
+                return {
+                    target = jreq.target,
+                    action = jreq.action,
+                    status = 'ok'
                 }
          end)
 end
