@@ -7,8 +7,8 @@ end
 
 print("Somfy App gestartet")
 local US_TO_MS = 1000
-local btn_release = gpio.LOW
-local btn_press = gpio.HIGH
+local btn_release = gpio.HIGH
+local btn_press = gpio.LOW
 
 local modeawning_1 = 1
 local modeawning_2 = 2
@@ -84,7 +84,7 @@ local function do_somfy_select_one(selectsave)
       tmr.delay(200 * US_TO_MS)
       gpio.write(button_select, btn_release)
       tmr.delay(500 * US_TO_MS)
-      if adc.read(0) <= 600 then
+      if adc.read(0) <= 800 then
          selectedled = selectedled + 1
       else
          selectedled = 0
