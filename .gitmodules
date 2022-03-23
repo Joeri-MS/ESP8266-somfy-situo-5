@@ -1,0 +1,3 @@
+[submodule "api32"]
+	path = api32
+	url = git@github.com:abobija/api32.git
