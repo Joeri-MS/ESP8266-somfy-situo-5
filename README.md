@@ -1,4 +1,4 @@
-# ESP8266-somfy-situo-5
+# ESP8266-somfy-situo-5 (wip)
 
 Die Idee ist einen ESP8266 mit LUA an eine Somfy Situo 5 io Pure II Ferbedienung anzuschliessen.
 Auf dem RSP8266 läuft dann eine RestAPI zur steuerung der Ferbedinung.
