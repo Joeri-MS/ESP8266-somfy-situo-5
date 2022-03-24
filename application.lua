@@ -221,6 +221,7 @@ if api == nil then
                       do_somfy_select_one(modeled)
                       do_somfy_action('led', jreq.action)
                    end
+                   tmr.delay(1000 * US_TO_MS)
                 end
                 return {
                     target = jreq.target,
