@@ -35,6 +35,6 @@ ToDo Liste:
 Gehäuse für den ESP8266: https://www.thingiverse.com/thing:2786523
 
 Bei der Anbindung mit NodeRed ist mir augefallen das die Basis Auth direkt als Header verschlüsselt übergeben werden muss.
-Meinen NodeRed-Flow Export ist im docs-Verzeichnis zu finden. Zusätzlich nutze ich noch das suncon Plugin bei NodeRed um bei Sonnenuntergang alle Markisen und Rollos einzufahren.
+Mein NodeRed-Flow Export ist im docs-Verzeichnis zu finden. Zusätzlich nutze ich noch das suncron Plugin bei NodeRed um bei Sonnenuntergang alle Markisen und Rollos einzufahren.
 
 ![Node Red Flow](/docs/NodeRed-Somfy.jpg)
