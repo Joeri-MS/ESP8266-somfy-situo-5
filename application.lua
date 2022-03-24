@@ -48,13 +48,35 @@ local function do_somfy_action(somfymode, somfyaction)
       gpio.write(button_down, btn_release)
       tmr.delay(200 * US_TO_MS)
    elseif somfyaction == 'extend10' then
+      gpio.write(button_down, btn_press)
+      tmr.delay(300 * US_TO_MS)
+      gpio.write(button_down, btn_release)
       if somfymode == 'sunblind' then
+         tmr.delay(1000 * US_TO_MS * maxawning_sec / 10)
+         gpio.write(button_my, btn_press)
+         tmr.delay(300 * US_TO_MS)
       elseif somfymode == 'shutter' then
+         tmr.delay(1000 * US_TO_MS * maxshutter_sec / 10)
+         gpio.write(button_my, btn_press)
+         tmr.delay(300 * US_TO_MS)
       end
+      gpio.write(button_my, btn_release)
+      tmr.delay(200 * US_TO_MS)
    elseif somfyaction == 'retract10' then
+      gpio.write(button_up, btn_press)
+      tmr.delay(300 * US_TO_MS)
+      gpio.write(button_up, btn_release)
       if somfymode == 'sunblind' then
+         tmr.delay(1000 * US_TO_MS * maxawning_sec / 10)
+         gpio.write(button_my, btn_press)
+         tmr.delay(300 * US_TO_MS)
       elseif somfymode == 'shutter' then
+         tmr.delay(1000 * US_TO_MS * maxshutter_sec / 10)
+         gpio.write(button_my, btn_press)
+         tmr.delay(300 * US_TO_MS)
       end
+      gpio.write(button_my, btn_release)
+      tmr.delay(200 * US_TO_MS)
    elseif somfyaction == 'half' then
       if somfymode == 'led' then
          gpio.write(button_my, btn_press)
@@ -62,7 +84,33 @@ local function do_somfy_action(somfymode, somfyaction)
          gpio.write(button_my, btn_release)
          tmr.delay(200 * US_TO_MS)
       elseif somfymode == 'sunblind' then
+         gpio.write(button_down, btn_press)
+         tmr.delay(300 * US_TO_MS)
+         gpio.write(button_down, btn_release)
+         tmr.delay(1000 * US_TO_MS * maxawning_sec )
+         tmr.delay(500 * US_TO_MS)
+         gpio.write(button_up, btn_press)
+         tmr.delay(300 * US_TO_MS)
+         gpio.write(button_up, btn_release)
+         tmr.delay(1000 * US_TO_MS * maxawning_sec / 2 )
+         gpio.write(button_my, btn_press)
+         tmr.delay(300 * US_TO_MS)
+         gpio.write(button_my, btn_release)
+         tmr.delay(200 * US_TO_MS)
       elseif somfymode == 'shutter' then
+         gpio.write(button_down, btn_press)
+         tmr.delay(300 * US_TO_MS)
+         gpio.write(button_down, btn_release)
+         tmr.delay(1000 * US_TO_MS * maxshutter_sec )
+         tmr.delay(500 * US_TO_MS)
+         gpio.write(button_up, btn_press)
+         tmr.delay(300 * US_TO_MS)
+         gpio.write(button_up, btn_release)
+         tmr.delay(1000 * US_TO_MS * maxshutter_sec / 2 )
+         gpio.write(button_my, btn_press)
+         tmr.delay(300 * US_TO_MS)
+         gpio.write(button_my, btn_release)
+         tmr.delay(200 * US_TO_MS)
       end
    elseif somfyaction == 'my' then
       gpio.write(button_my, btn_press)
@@ -113,31 +161,48 @@ if api == nil then
                      pwd  = 'somsec'
                 }
             })
-         .on_get('/info', function(jreq) 
+         .on_get('/info', function() 
                 return {
-                       message = 'Hello world'
+                       message = 'Somfy RestAPI',
+                       help = [ '/adctest -> ADC Volt Level anzeigen',
+                                '/select -> Kanal auswaehlen, Parameter: selmode: 1-5',
+                                '/action -> Etwas ausfuehren, Parameter: target: [ "sunblindright", "sunblindleft", "shutterleft", "shutterright", "light"], action: "on", "off", "extendfull", "retractfull", "extend10", "retract10", "half", "my"',
+                                '/my -> Einfach die my-Taste bei derzeitigen Kanal' ],
+                       status = 'ok'
                 }
-         end)
-         .on_get('/test', function(jreq)
-                if jreq == nil or jreq.selmode == nil then return end
-                -- do_somfy_select_one(2)
- 
+            end)
+         .on_get('/my', function()
+         -- Taste my ohne Kanalwechsel vorher
+                    gpio.write(button_my, btn_press)
+                    tmr.delay(200 * US_TO_MS)
+                    gpio.write(button_my, btn_release)
+                    tmr.delay(500 * US_TO_MS)
                 return {
-                    selected = '1',
-                    volt = adc.read(0)
+                    status = 'ok'
                 }
-         end)
-         .on_post('/select', function(jreq)                
-                if jreq == nil or jreq.selmode == nil then return end
-                print(jreq.selmode)
+            end)
+         .on_get('/adctest', function()
+         -- Testausgabe vom ADC Volt level
+                return {
+                    adcvolt = adc.read(0),
+                    status = 'ok'
+                }
+            end)
+         .on_post('/select', function(jreq)
+         -- Auswahl des Kanals                
+                if jreq == nil or jreq.selmode == nil then
+                    return {
+                       status = 'ERROR'
+                    }
+                end
                 do_somfy_select_one(jreq.selmode)
- 
                 return {
-                    selected = '1',
-                    volt = adc.read(0)
+                    selected = jreq.selmode,
+                    status = 'ok'
                 }
-         end)
+            end)
          .on_post('/action', function(jreq)
+         -- Hier werden alle Aktionen wie rauf/runter/an/aus... verarbeitet
                 if jreq == nil or jreq.target == nil or jreq.action == nil then
                     return {
                        status = 'ERROR'
@@ -166,5 +231,5 @@ if api == nil then
                     action = jreq.action,
                     status = 'ok'
                 }
-         end)
+            end)
 end
