@@ -164,10 +164,6 @@ if api == nil then
          .on_get('/info', function() 
                 return {
                        message = 'Somfy RestAPI',
-                       help = [ '/adctest -> ADC Volt Level anzeigen',
-                                '/select -> Kanal auswaehlen, Parameter: selmode: 1-5',
-                                '/action -> Etwas ausfuehren, Parameter: target: [ "sunblindright", "sunblindleft", "shutterleft", "shutterright", "light"], action: "on", "off", "extendfull", "retractfull", "extend10", "retract10", "half", "my"',
-                                '/my -> Einfach die my-Taste bei derzeitigen Kanal' ],
                        status = 'ok'
                 }
             end)
@@ -217,7 +213,7 @@ if api == nil then
                       do_somfy_action('sunblind', jreq.action)
                    elseif value == 'shutterright' then
                       do_somfy_select_one(modeshutter_1)
-                      do_somfy_action('suhher', jreq.action)
+                      do_somfy_action('shutter', jreq.action)
                    elseif value == 'shutterleft' then
                       do_somfy_select_one(modeshutter_2)
                       do_somfy_action('shutter', jreq.action)
