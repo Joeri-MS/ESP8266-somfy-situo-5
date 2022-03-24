@@ -18,7 +18,7 @@ ToDo Liste:
 3. Dann die folgenden Dateien anpassen und übertragen (vielleicht hiermit: https://esp8266.ru/esplorer):
    1. credentials.lua : Hier die SSID und das WLAN Passwort anpassen damit der ESP8266 in euer WLAN kommt
    2. init.lua : Hier vielleicht den Teil wifi.sta.sethostname("SomfyRestAPI") anpassen, um einen eigenen Hostname für den ESP8266 zu setzen
-   3. application.lua : Hier sind die Pins der Kabel anzupassen und die Dauer, die die Markisen und Sonnenschutz Rollos zum Ausfahren benötigen
+   3. application.lua : Hier sind die Pins der Kabel anzupassen und die Dauer, die die Markisen und Sonnenschutz Rollos zum Ausfahren benötigen.
                         Vielleicht auch den Teil mit der Basis Auth: 
                         auth = {
                             user = 'somfyuser',
@@ -34,7 +34,7 @@ ToDo Liste:
 
 Gehäuse für den ESP8266: https://www.thingiverse.com/thing:2786523
 
-Bei der Anbindung mit Node Red ist mir aufgefallen, daß die Basis Auth direkt als Header verschlüsselt übergeben werden muss.
+Bei der Anbindung mit Node Red ist mir aufgefallen, dass die Basis Auth direkt als Header verschlüsselt übergeben werden muss.
 Mein Node Red-Flow Export ist im docs-Verzeichnis zu finden. Zusätzlich nutze ich noch das suncron Plugin bei Node Red um bei Sonnenuntergang alle Markisen und Rollos einzufahren.
 
 ![Node Red Flow](/docs/NodeRed-Somfy.jpg)
