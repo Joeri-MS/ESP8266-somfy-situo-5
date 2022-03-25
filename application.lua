@@ -206,16 +206,16 @@ if api == nil then
                 end
                 for key, value in pairs(jreq.target) do
                    if value == 'sunblindright' then
-                      do_somfy_select_one(modeawning_1)
-                      do_somfy_action('sunblind', jreq.action)
-                   elseif value == 'sunblindleft' then
                       do_somfy_select_one(modeawning_2)
                       do_somfy_action('sunblind', jreq.action)
+                   elseif value == 'sunblindleft' then
+                      do_somfy_select_one(modeawning_1)
+                      do_somfy_action('sunblind', jreq.action)
                    elseif value == 'shutterright' then
-                      do_somfy_select_one(modeshutter_1)
+                      do_somfy_select_one(modeshutter_2)
                       do_somfy_action('shutter', jreq.action)
                    elseif value == 'shutterleft' then
-                      do_somfy_select_one(modeshutter_2)
+                      do_somfy_select_one(modeshutter_1)
                       do_somfy_action('shutter', jreq.action)
                    elseif value == 'light' then
                       do_somfy_select_one(modeled)
