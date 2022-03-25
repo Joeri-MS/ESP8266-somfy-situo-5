@@ -33,8 +33,13 @@ ToDo Liste:
 ![Fernbedienung 4](/docs/Remote-4.jpg)
 
 Gehäuse für den ESP8266: https://www.thingiverse.com/thing:2786523
+![Fernbedienung 4](/docs/Remote-5.jpg)
 
 Bei der Anbindung mit Node Red ist mir aufgefallen, dass die Basis Auth direkt als Header verschlüsselt übergeben werden muss.
 Mein Node Red-Flow Export ist im docs-Verzeichnis zu finden. Zusätzlich nutze ich noch das suncron Plugin bei Node Red um bei Sonnenuntergang alle Markisen und Rollos einzufahren.
+
+Fertig.
+
+![Fernbedienung 6](/docs/Remote-6.jpg)
 
 ![Node Red Flow](/docs/NodeRed-Somfy.jpg)

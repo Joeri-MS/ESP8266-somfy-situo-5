@@ -114,8 +114,8 @@
         "dawnOffsetHours": 0,
         "dawnOffsetMinutes": 0,
         "dawnOffset": 0,
-        "x": 250,
-        "y": 360,
+        "x": 470,
+        "y": 800,
         "wires": [
             [
                 "cbda4ad066807738"
@@ -145,330 +145,12 @@
         "qToggle": false,
         "persist": false,
         "storeName": "memory",
-        "x": 930,
-        "y": 740,
+        "x": 950,
+        "y": 940,
         "wires": [
             [
-                "189c6d83f775b4ef"
-            ]
-        ]
-    },
-    {
-        "id": "880f53bb904eb2b6",
-        "type": "ui_button",
-        "z": "94337aafa3acc7ad",
-        "d": true,
-        "name": "",
-        "group": "91216545db1a6f8f",
-        "order": 2,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Licht an",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "fa-arrow-circle-up",
-        "payload": "{\"target\":[\"light\"],\"action\":\"on\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 420,
-        "y": 440,
-        "wires": [
-            [
-                "cbda4ad066807738"
-            ]
-        ]
-    },
-    {
-        "id": "6421636f6c8cc6f1",
-        "type": "ui_button",
-        "z": "94337aafa3acc7ad",
-        "d": true,
-        "name": "",
-        "group": "91216545db1a6f8f",
-        "order": 3,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Licht aus",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "fa-arrow-circle-down",
-        "payload": "{\"target\":[\"light\"],\"action\":\"off\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 420,
-        "y": 520,
-        "wires": [
-            [
-                "cbda4ad066807738"
-            ]
-        ]
-    },
-    {
-        "id": "be71037db639c5de",
-        "type": "ui_button",
-        "z": "94337aafa3acc7ad",
-        "d": true,
-        "name": "",
-        "group": "b90eabdd81a23d5d",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Alle Markisen/Rolladen einfahren",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "{\"target\":[\"sunblindright\",\"sunblindleft\",\"shutterleft\",\"shutterright\"],\"action\":\"retractfull\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 500,
-        "y": 580,
-        "wires": [
-            [
-                "cbda4ad066807738"
-            ]
-        ]
-    },
-    {
-        "id": "ecb79759eab32856",
-        "type": "ui_button",
-        "z": "94337aafa3acc7ad",
-        "d": true,
-        "name": "",
-        "group": "b90eabdd81a23d5d",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Alle Markisen ganz ausfahren",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "{\"target\":[\"sunblindright\",\"sunblindleft\"],\"action\":\"extendfull\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 490,
-        "y": 620,
-        "wires": [
-            [
-                "cbda4ad066807738"
-            ]
-        ]
-    },
-    {
-        "id": "d1512590e878bf98",
-        "type": "ui_button",
-        "z": "94337aafa3acc7ad",
-        "d": true,
-        "name": "",
-        "group": "b90eabdd81a23d5d",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Alle Markisen +10%",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "{\"target\":[\"sunblindright\",\"sunblindleft\"],\"action\":\"extend10\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 460,
-        "y": 680,
-        "wires": [
-            [
-                "cbda4ad066807738"
-            ]
-        ]
-    },
-    {
-        "id": "acc59a9945d6c9e9",
-        "type": "ui_button",
-        "z": "94337aafa3acc7ad",
-        "d": true,
-        "name": "",
-        "group": "b90eabdd81a23d5d",
-        "order": 7,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Alle Markisen -10%",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "{\"target\":[\"sunblindright\",\"sunblindleft\"],\"action\":\"retract10\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 450,
-        "y": 720,
-        "wires": [
-            [
-                "cbda4ad066807738"
-            ]
-        ]
-    },
-    {
-        "id": "fb5ba94f22a21ad6",
-        "type": "ui_button",
-        "z": "94337aafa3acc7ad",
-        "d": true,
-        "name": "",
-        "group": "b90eabdd81a23d5d",
-        "order": 8,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Alle Markisen 50%",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "{\"target\":[\"sunblindright\",\"sunblindleft\"],\"action\":\"half\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 450,
-        "y": 760,
-        "wires": [
-            [
-                "cbda4ad066807738"
-            ]
-        ]
-    },
-    {
-        "id": "a8d37e90ae4a4a5e",
-        "type": "ui_button",
-        "z": "94337aafa3acc7ad",
-        "d": true,
-        "name": "",
-        "group": "2a1f055cd189c1dd",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Alle Rolladen +10%",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "{\"target\":[\"shutterleft\", \"shutterright\"],\"action\":\"extend10\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 450,
-        "y": 820,
-        "wires": [
-            [
-                "cbda4ad066807738"
-            ]
-        ]
-    },
-    {
-        "id": "0f36405315b99ed9",
-        "type": "ui_button",
-        "z": "94337aafa3acc7ad",
-        "d": true,
-        "name": "",
-        "group": "2a1f055cd189c1dd",
-        "order": 5,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Alle Rolladen -10%",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "{\"target\":[\"shutterleft\", \"shutterright\"],\"action\":\"retract10\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 450,
-        "y": 860,
-        "wires": [
-            [
-                "cbda4ad066807738"
-            ]
-        ]
-    },
-    {
-        "id": "ea04f1b6d0dad2f4",
-        "type": "ui_button",
-        "z": "94337aafa3acc7ad",
-        "d": true,
-        "name": "",
-        "group": "2a1f055cd189c1dd",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Alle Rolladen 50%",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "",
-        "payload": "{\"target\":[\"shutterleft\", \"shutterright\"],\"action\":\"half\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 450,
-        "y": 900,
-        "wires": [
-            [
-                "cbda4ad066807738"
-            ]
-        ]
-    },
-    {
-        "id": "dbbd482ad20dacdf",
-        "type": "ui_button",
-        "z": "94337aafa3acc7ad",
-        "d": true,
-        "name": "",
-        "group": "91216545db1a6f8f",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "passthru": false,
-        "label": "Licht dimmen",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "className": "",
-        "icon": "fa-arrow-circle-down",
-        "payload": "{\"target\":[\"light\"],\"action\":\"my\"}",
-        "payloadType": "json",
-        "topic": "topic",
-        "topicType": "msg",
-        "x": 430,
-        "y": 480,
-        "wires": [
-            [
-                "cbda4ad066807738"
+                "189c6d83f775b4ef",
+                "0901f81be46c4dbb"
             ]
         ]
     },
@@ -486,8 +168,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 1370,
-        "y": 520,
+        "x": 1450,
+        "y": 940,
         "wires": [
             [
                 "74a6062686db64fe"
@@ -505,12 +187,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1060,
-        "y": 520,
+        "x": 1180,
+        "y": 940,
         "wires": [
             [
-                "db5d594960218d0b",
-                "e688e7dc3993c006"
+                "db5d594960218d0b"
             ]
         ]
     },
@@ -527,8 +208,8 @@
         "format": "{{msg.statusCode}} {{msg.payload.status}}",
         "layout": "row-spread",
         "className": "",
-        "x": 1610,
-        "y": 520,
+        "x": 1650,
+        "y": 900,
         "wires": []
     },
     {
@@ -543,7 +224,7 @@
         "order": 1,
         "width": 0,
         "height": 0,
-        "passthru": true,
+        "passthru": false,
         "multiple": false,
         "options": [
             {
@@ -578,14 +259,14 @@
         "id": "463766b891e88bd2",
         "type": "function",
         "z": "94337aafa3acc7ad",
-        "name": "Licht schalter",
+        "name": "Licht Schalter",
         "func": "msg.payload = {\"target\":[\"light\"],\"action\": msg.payload}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 630,
+        "x": 640,
         "y": 940,
         "wires": [
             [
@@ -635,7 +316,7 @@
         "id": "fafa0b50f1406a84",
         "type": "function",
         "z": "94337aafa3acc7ad",
-        "name": "Markisen/Rollo schalter",
+        "name": "Markisen/Rollo Schalter",
         "func": "msg.payload = {\"target\":[\"sunblindright\",\"sunblindleft\",\"shutterleft\",\"shutterright\"],\"action\": msg.payload}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -671,7 +352,7 @@
         "topic": "topic",
         "topicType": "msg",
         "x": 440,
-        "y": 1060,
+        "y": 860,
         "wires": [
             [
                 "dfe61e95c6d6ac54"
@@ -689,8 +370,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1060,
-        "y": 1060,
+        "x": 1180,
+        "y": 860,
         "wires": [
             [
                 "991434ad69b11313"
@@ -720,8 +401,8 @@
         "qToggle": false,
         "persist": false,
         "storeName": "memory",
-        "x": 810,
-        "y": 1060,
+        "x": 950,
+        "y": 860,
         "wires": [
             [
                 "8138db803fa58536"
@@ -742,8 +423,8 @@
         "proxy": "",
         "authType": "",
         "senderr": false,
-        "x": 1330,
-        "y": 1060,
+        "x": 1450,
+        "y": 860,
         "wires": [
             [
                 "74a6062686db64fe"
@@ -807,7 +488,7 @@
         "id": "9b4619dfc6f45191",
         "type": "function",
         "z": "94337aafa3acc7ad",
-        "name": "Markisenschalter",
+        "name": "Markisen Schalter",
         "func": "msg.payload = {\"target\":[\"sunblindright\",\"sunblindleft\"],\"action\": msg.payload}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -879,14 +560,14 @@
         "id": "531cb9c8c54650b6",
         "type": "function",
         "z": "94337aafa3acc7ad",
-        "name": "Rolloschalter",
+        "name": "Rollo Schalter",
         "func": "msg.payload = {\"target\":[\"shutterright\",\"shutterleft\"],\"action\": msg.payload}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 650,
+        "x": 660,
         "y": 1160,
         "wires": [
             [
@@ -936,14 +617,14 @@
         "id": "5a06d8c44ab07db9",
         "type": "function",
         "z": "94337aafa3acc7ad",
-        "name": "Rolloschalter rechts",
+        "name": "Rollo Schalter rechts",
         "func": "msg.payload = {\"target\":[\"shutterright\"],\"action\": msg.payload}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
+        "x": 680,
         "y": 1240,
         "wires": [
             [
@@ -993,7 +674,7 @@
         "id": "91448c4045e1c35c",
         "type": "function",
         "z": "94337aafa3acc7ad",
-        "name": "Rolloschalter links",
+        "name": "Rollo Schalter links",
         "func": "msg.payload = {\"target\":[\"shutterleft\"],\"action\": msg.payload}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -1050,14 +731,14 @@
         "id": "d5e14bd651332112",
         "type": "function",
         "z": "94337aafa3acc7ad",
-        "name": "Markiseschalter rechts",
+        "name": "Markisen Schalter rechts",
         "func": "msg.payload = {\"target\":[\"sunblindright\"],\"action\": msg.payload}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
+        "x": 690,
         "y": 1340,
         "wires": [
             [
@@ -1107,14 +788,14 @@
         "id": "9e15dcc5fec6a213",
         "type": "function",
         "z": "94337aafa3acc7ad",
-        "name": "Markiseschalter links",
+        "name": "Markisen Schalter links",
         "func": "msg.payload = {\"target\":[\"sunblindleft\"],\"action\": msg.payload}\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 680,
+        "x": 690,
         "y": 1380,
         "wires": [
             [
@@ -1123,20 +804,66 @@
         ]
     },
     {
-        "id": "e688e7dc3993c006",
-        "type": "debug",
+        "id": "0901f81be46c4dbb",
+        "type": "delay",
         "z": "94337aafa3acc7ad",
         "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1350,
-        "y": 620,
-        "wires": []
+        "pauseType": "delay",
+        "timeout": "2",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1000,
+        "y": 1040,
+        "wires": [
+            [
+                "7ae87c8b493464c3"
+            ]
+        ]
+    },
+    {
+        "id": "7ae87c8b493464c3",
+        "type": "function",
+        "z": "94337aafa3acc7ad",
+        "name": "Sende leere MSG",
+        "func": "msg.payload = \"\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 1100,
+        "wires": [
+            [
+                "0686d64be7105021",
+                "55963ad04207f10f",
+                "ec1e0cb9ea80cd31",
+                "a863468895c1607d",
+                "b500267e6a57c63e",
+                "2d0898d14f78f23a",
+                "af9ff309273e8b9f",
+                "887d836c8ee1d50a"
+            ]
+        ]
+    },
+    {
+        "id": "ad8f979f4eb39d49",
+        "type": "ui_group",
+        "name": "Allgemein",
+        "tab": "1a503de3.a88f6a",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "91216545db1a6f8f",
@@ -1166,17 +893,6 @@
         "name": "Rolladen",
         "tab": "1a503de3.a88f6a",
         "order": 2,
-        "disp": true,
-        "width": "6",
-        "collapse": false,
-        "className": ""
-    },
-    {
-        "id": "ad8f979f4eb39d49",
-        "type": "ui_group",
-        "name": "Allgemein",
-        "tab": "1a503de3.a88f6a",
-        "order": 4,
         "disp": true,
         "width": "6",
         "collapse": false,
