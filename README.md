@@ -1,7 +1,7 @@
 # ESP8266-somfy-situo-5 (wip)
 
 Die Idee ist einen ESP8266 mit LUA an eine Somfy Situo 5 io Pure II Fernbedienung anzuschließen.
-Auf dem RSP8266 läuft dann eine RestAPI zur Steuerung der Fernbedienung.
+Auf dem ESP8266 läuft dann eine RestAPI zur Steuerung der Fernbedienung.
 Die RestAPI wird am Ende via Node Red angesprochen zur Automation.
 
 Ich habe hier 2 Markisen oben unter dem Terrassendach, 2 Sonnenschutz Rollos. Und die LED's können noch mit der Fernbedienung gesteuert werden.
